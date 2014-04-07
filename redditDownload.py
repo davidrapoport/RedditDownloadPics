@@ -12,19 +12,13 @@ import stat
 import subprocess
 import wx
 from sys import argv
-try:
-	first = argv
-	print "Your first variable is:", first
-except Exception as e:
-	print str(e)
-	time.sleep(10)
+
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
 def fixCWKD():
 	path =os.getcwd()
-	while not len(path)==3:
-		path=path[:-1]
+	path = path[0:3]
 	path=path+"Users\\David Rapoport\\Desktop"
 	print path
 	os.chdir(path)
@@ -58,8 +52,7 @@ def fixCaptions(capt):
 	return capt
 
 today=datetime.datetime.now()
-print "k"
-delta = datetime.timedelta(2)
+delta = datetime.timedelta(4)
 fourAgo= today-delta
 fourString = "Reddit's best for "+str(fourAgo.month) + "_" + str(fourAgo.day) + "_" + str(fourAgo.year)
 if os.path.exists(fourString):
